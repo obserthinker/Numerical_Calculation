@@ -1,11 +1,11 @@
-/*ÍõĞıÓî 9.28.14 ¸Ä*/
+ï»¿/*ç‹æ—‹å®‡ 9.28.14 æ”¹*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
-//º¯Êınt_rps()ÎªÅ£¶Ù-À­·òÉ­Ëã·¨³ÌĞò
+//nt_rps is for Newton-Raphson
 void nt_rps();
-//f(),f_d(),r()·Ö±ğÎª¼ÆËãÊúÖ±·½Ïò¸ßËÙ¡¢ÊúÖ±·½Ïòµ¼º¯ÊıÊıÖµ¡¢Ë®Æ½·½ÏòĞĞ³Ì
+//f is for height of object. f_d is the derivative of f. r is the length of object
 double f(double t);
 double f_d(double t);
 double r(double t);
@@ -13,52 +13,48 @@ double r(double t);
 int main()
 {
     freopen("out.txt","w",stdout);
-    //½øÈëÅ£¶Ù-À­·òÉ­Ëã·¨
     nt_rps();
     return 0;
 }
 
 void nt_rps()
 {
-    //tÎªÊ±¼ä£¬Ô¤¹À³õÊ¼ÖµÎª5
     double t = 5;
     double temp = 0;
     double err = 0;
-    //tolÎªÎó²îÈİÈÌ·¶Î§
     double tol;
-    //printf("f(5) = %.10f\n",f(5));
+
     tol = 1E-10;
 
-    //µü´ú
-    do{//Èç¹û³¬¹ıÁËÎó²îÈİÈÌ·¶Î§¼ÌĞøµü´ú
-        //Å£¶Ù-À­·òÉ­µü´ú¹«Ê½
+    //è¿­ä»£
+    do{
         printf("%.12f\n",err);
-        //printf("µü´ú¼ÆËã£º%.15f = %.15f-%f/%f\n",t - f(t)/f_d(t),t,f(t),f_d(t));
+        //printf("Debug iteration computingï¼š%.15f = %.15f-%f/%f\n",t - f(t)/f_d(t),t,f(t),f_d(t));
         temp = t - f(t)/f_d(t);
         err = fabs(temp - t);
         t = temp;
-        //µ÷ÊÔÊ¹ÓÃ£¬¹Û²ìÉú³ÉÏîµÄÖµÒÔ¼°º¯ÊıÖµ
+        //Debug
         //printf("f(%.10f) = %.10f\n",t,f(t));
 
     }while(err >= tol);
-    //µü´ú½áÊø£¬Êä³ö´ğ°¸
+
     printf("\nans: f(%.10f) = %.10f\nr(t) = %.10f",t,f(t),r(t));
 }
 
 double f(double t)
 {
-    //·µ»Øy·½Ïò¸ß¶È
+    //height of object
     return ( 9600 * (1 - exp((-t) / 15)) - 480*t );
 }
 
 double f_d(double t)
 {
-    //·µ»Øy·½ÏòÔË¶¯·½³ÌµÄµ¼º¯ÊıÖµ
+    //the derivative of f
     return ( 640 * (exp((-t) / 15)) - 480 );
 }
 
 double r(double t)
 {
-    //·µ»Øx·½ÏòÔË¶¯ĞĞ³Ì
+    //the length in x direction of object
     return ( 2400 * (1 - exp((-t) / 15) ) );
 }
