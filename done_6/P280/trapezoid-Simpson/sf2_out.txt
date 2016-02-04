@@ -1,0 +1,8 @@
+the left end and right end of interval:The interval would be subdivided into M subintervals:the mode you'll use (T or S):
+mode = S
+S mode
+the parameters is:
+left end = 0.000000
+right end = 1.000000
+M = 500.000000
+the result is: 2.8707904148

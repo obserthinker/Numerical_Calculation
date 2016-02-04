@@ -1,0 +1,197 @@
+\documentclass{report}
+\usepackage{CJK}
+\usepackage{color,array}
+\usepackage{slashbox}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{latexsym,bm}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{warpcol}
+\usepackage{graphicx}
+\usepackage[colorlinks, linkcolor=black,CJKbookmarks=true]{hyperref}
+\usepackage{multimedia}
+\usepackage[iso]{isodateo}
+\begin{CJK*}{GBK}{song}
+\newtheorem{definition}{定义}[part]
+\newtheorem{theorem}{定理}[part]
+
+\end{CJK*}
+\renewcommand{\thedefinition}{\arabic{definition}~}
+\renewcommand{\thetheorem}{\arabic{theorem}~}
+\renewcommand\thesection{\arabic{section}~}
+\renewcommand{\figurename}{Fig.}
+%\renewcommand{\tableofcontents}{Fig.}
+%\renewcommand{\tablename}{table.}
+%\renewcommand\thesection{\arabic{subsection}~}
+\begin{document}
+\begin{CJK*}{GBK}{song}
+\title{\CJKfamily{hei}\textbf{插值与多项式逼近的数值计算方法实验}}
+\author{姓名：王旋宇\\ 学号：2012049010022\\ 班级：数理基科班\\ 老师：赖生建}
+\date{\today}
+\maketitle
+%\tableofcontents
+
+\chapter{群}
+本章概论：1.1节讨论等价关系和几何的分类以及之间的联系。1.2\~1.4介绍群的内容。1.5\~1.6详细介绍两类群——循环群和置换群。
+\section{等价关系与集合的分类}
+\subsection{等价关系}
+\begin{definition}\label{关系}
+  关系\quad 设S是一个非空集合，\textrm{R}是关于S的元素的一个条件，如果对S中任意一个有序元素对(a,b)，都能确定a and b 是否满足条件\textrm{R}，那么称\textrm{R}是S上的一个关系。如果a,b满足条件就称为a,b有关系R,记作aRb，否则称为无关系R。关系R也叫做二元关系。
+\end{definition}
+
+\begin{definition}\label{等价关系}
+  等价关系\quad R为S的一个关系，如果R满足三个条件\par
+  \begin{enumerate}
+    \item 反身性
+    \item 对称性
+    \item 传递性
+  \end{enumerate}
+  R为S的一个等价关系。
+\end{definition}
+
+\begin{definition}\label{等价类和商集}
+  等价类和商集\quad 设$\sim$是S的一个等价关系，那么$a\in S$,令
+  \begin{equation*}
+    [a]={x\in S|x~a}
+  \end{equation*}
+  则[a]为S的一个等价类。S的全体等价类的集合称为集合S在等价关系的商集，记作S/$\sim$.
+\end{definition}
+
+\subsection{分类}
+
+\begin{definition}
+  分类和类
+\end{definition}
+
+\subsection{等价关系和分类的联系}
+\begin{theorem}
+    等价关系和分类的关系
+\end{theorem}
+
+\section{群的概念}
+\subsection{群的定义}
+\begin{definition}
+  代数运算
+\end{definition}
+\begin{definition}
+  群
+\end{definition}
+
+\subsection{几种常见的群}
+
+\subsection{群的性质}
+\begin{theorem}
+
+  \begin{enumerate}
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+  \end{enumerate}
+\end{theorem}
+\begin{theorem}
+  唯一解
+\end{theorem}
+\subsection{群的判断}
+\begin{definition}
+  指数与倍数法则
+\end{definition}
+\begin{theorem}
+  情况一
+\end{theorem}
+\begin{theorem}
+  情况二
+\end{theorem}
+
+\section{子群}
+\subsection{子群的定义}
+\begin{definition}
+  子群
+\end{definition}
+
+\subsection{判断子群}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\section{群的同构}
+\subsection{同构的定义}
+\begin{definition}
+
+\end{definition}
+\subsection{同构的性质}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\section{循环群}
+\subsection{元素的阶概念和有关性质}
+\begin{definition}
+
+\end{definition}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\subsection{循环群}
+\begin{definition}
+
+\end{definition}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\begin{corollary}
+
+\end{corollary}
+\begin{corollary}
+
+\end{corollary}
+\begin{theorem}
+
+\end{theorem}
+\section{置换群和对称群}
+\begin{definition}
+
+\end{definition}
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+
+\end{theorem}
+\begin{definition}
+
+\end{definition}
+\begin{theorem}
+
+\end{theorem}
+
+\end{CJK*}
+
+\end{document}

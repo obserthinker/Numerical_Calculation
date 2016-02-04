@@ -1,0 +1,21 @@
+Please input the number of nodes you have:nd->num = 6
+the NO.0 node and it's value are:the NO.1 node and it's value are:the NO.2 node and it's value are:the NO.3 node and it's value are:the NO.4 node and it's value are:the NO.5 node and it's value are:nd->num = 6
+the NO.0 node and it's value are :	1.000000	66.000000:
+the NO.1 node and it's value are :	2.000000	66.000000:
+the NO.2 node and it's value are :	3.000000	65.000000:
+the NO.3 node and it's value are :	4.000000	64.000000:
+the NO.4 node and it's value are :	5.000000	63.000000:
+the NO.5 node and it's value are :	6.000000	63.000000:
+the result is : 66.000000
+the result is : 66.000000
+the result is : 65.000000
+the result is : 64.000000
+the result is : 63.000000
+the result is : 63.000000
+-0.550000*(x-2.000000)*(x-3.000000)*(x-4.000000)*(x-5.000000)*(x-6.000000)
++2.750000*(x-1.000000)*(x-3.000000)*(x-4.000000)*(x-5.000000)*(x-6.000000)
++-5.416667*(x-1.000000)*(x-2.000000)*(x-4.000000)*(x-5.000000)*(x-6.000000)
++5.333333*(x-1.000000)*(x-2.000000)*(x-3.000000)*(x-5.000000)*(x-6.000000)
++-2.625000*(x-1.000000)*(x-2.000000)*(x-3.000000)*(x-4.000000)*(x-6.000000)
++0.525000*(x-1.000000)*(x-2.000000)*(x-3.000000)*(x-4.000000)*(x-5.000000)
++

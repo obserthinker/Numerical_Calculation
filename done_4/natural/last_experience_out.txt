@@ -1,0 +1,79 @@
+Input the Number of Node:
+Input the Number of Node:
+Input the Number of Node:
+Input the Number of Node:
+Input the Number of Node:
+Input No.0's value: Input No.1's value: Input No.2's value: Input No.3's value: Input the Number of Node:
+Input No.0's value: Input No.1's value: Input No.2's value: Input No.3's value: The No.0 value is :0.500000 
+The No.1 value is :1.000000 
+The No.2 value is :1.500000 
+The No.3 value is :2.000000 
+
+The No.0 value is :4.500000 
+The No.1 value is :3.000000 
+The No.2 value is :2.833333 
+The No.3 value is :3.000000 
+
+
+h
+The No.0 value is :0.500000 
+The No.1 value is :0.500000 
+The No.2 value is :0.500000 
+
+
+d
+The No.0 value is :-3.000000 
+The No.1 value is :-0.333333 
+The No.2 value is :0.333333 
+
+
+m
+The No.0 value is :0.000000 
+The No.1 value is :0.000000 
+The No.2 value is :0.000000 
+The No.3 value is :0.000000 
+
+
+u
+
+u
+The No.0 value is :0.000000 
+The No.1 value is :16.000000 
+The No.2 value is :4.000000 
+
+i=0,in 1
+B+0=16.000000
+i=1,in 2
+B+1=4.000000
+i=1,in 3
+B+1=4.000000
+first row:input the coefficient of the a(1,1) & a(1,2):
+input the coefficient of the a(2,1) & a(2,2):
+
+TriMatrix = 
+2.000   0.500   
+0.500   2.000   
+
+B = 
+16.000   
+4.000   
+X = 
+8.000   
+0.000   
+
+
+16.000   
+4.000   
+
+m:
+The No.0 value is :0.000000 
+The No.1 value is :8.000000 
+The No.2 value is :0.000000 
+The No.3 value is :0.000000 
+
+0.000000	8.000000
+1.000000	0.000000
+2.000000	0.000000
+4.500000&	-3.666667&	0.000000&	2.666667
+3.000000&	-1.666667&	4.000000&	-2.666667
+2.833333&	0.333333&	0.000000&	-0.000000

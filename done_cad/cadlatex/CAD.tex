@@ -1,0 +1,531 @@
+\documentclass[CJK]{report}
+\usepackage{CJK}
+\usepackage{color}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{latexsym,bm}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,pagecolor=blue,urlcolor=blue,CJKbookmarks=true]{hyperref}
+\usepackage{multimedia}
+%\usepackage{media9}
+\usepackage[iso]{isodateo}
+\begin{CJK*}{GBK}{song}
+\newtheorem{definition}{定义}[part]
+\newtheorem{theorem}{定理}[part]
+\end{CJK*}
+\renewcommand{\thedefinition}{\arabic{definition}~}
+\renewcommand{\thetheorem}{\arabic{theorem}~}
+\renewcommand\thesection{\arabic{section}~}
+%\renewcommand\thesection{\arabic{subsection}~}
+\begin{document}
+\begin{CJK*}{GBK}{song}
+\title{\CJKfamily{hei}\textbf{CAD模型旋转的矩阵应用数值实验}}
+\author{姓名：王旋宇\\ 学号：2012049010022\\ 班级：数理基科班\\ 老师：赖生建}
+\date{\today}
+\maketitle
+
+\section{\CJKfamily{hei}实验目的}
+\begin{enumerate}
+  \item 了解正交矩阵、正交变换
+  \item 会使用CAD制作简单模型
+\end{enumerate}
+
+\section{\CJKfamily{hei}实验原理}
+
+\subsection{\CJKfamily{hei}二维平面旋转变换}
+{\CJKfamily{song}
+设平面上有单位向量$\vec{a}=(x,y)$，设该向量和$x$轴的夹角为$\alpha$，当该向量旋转一个角度$\theta$时，设旋转以后的向量为$\vec{a}^{'}=(x^{'},y^{'})$，易知
+
+\begin{eqnarray}\label{befro}
+\left\{
+\begin{split}
+  x &=& \cos\alpha \\
+  y &=& \sin\alpha
+\end{split}
+\right.
+\end{eqnarray}
+
+以及
+\begin{eqnarray}\label{afro}
+\left\{
+    \begin{split}
+        x^{'} &=& \cos(\alpha+\theta) \\
+        y^{'} &=& \sin(\alpha+\theta)
+    \end{split}
+\right.
+\end{eqnarray}
+把(\ref{afro})展开可以得到
+
+\begin{eqnarray}
+\left\{
+\begin{split}
+          x^{'} &=& \cos\alpha\cos\theta-\sin\alpha\sin\theta \\
+          y^{'} &=& \sin\alpha\cos\theta+\cos\alpha\sin\theta
+     \end{split}\right.
+\end{eqnarray}
+与(\ref{befro})联立可得
+
+\begin{eqnarray}
+\left\{\begin{split}
+  x^{'} &=& \cos\theta x-\sin\theta y\\
+  y^{'} &=& \cos\theta y+\sin\theta x
+  \end{split}\right.
+\end{eqnarray}
+转化为矩阵形式即为\\
+\begin{equation}\label{matrix_2ro}
+    \begin{bmatrix}
+      \cos\theta & \sin\theta \\
+      -\sin\theta & \cos\theta \\
+    \end{bmatrix}
+  \begin{bmatrix}
+    x \\
+    y \\
+  \end{bmatrix}
+=
+  \begin{bmatrix}{c}
+    x^{'} \\
+    y^{'} \\
+  \end{bmatrix}
+\end{equation}
+}
+\subsection{\CJKfamily{hei}分块矩阵}
+{\CJKfamily{song}
+有时候，我们用几条纵线与横线将矩阵分割，把一个大矩阵看成是一些小矩阵组成的，就如是矩阵是由数组成的一样，构成一个个分块矩阵，从而把大型矩阵的运算华为若干小型矩阵的运算，使运算更为简明。
+\par 下面说一下分块矩阵的乘法。
+\par 设分块矩阵$A=(a_{ij})_{m\times n},B=(b_{ij})_{n\times p}$，如果把$A,B$分别分块为$r\times s$和$s\times t$ 分块矩阵，且$A$的列的分法和$B$的行的分法相同，即 \\
+\begin{align*}\label{exblock}
+    A=
+  \begin{bmatrix}
+    A_{11} & \cdots & A_{1s} \\
+    \vdots &  & \vdots \\
+    A_{r1} & \cdots & A_{rs} \\
+  \end{bmatrix} && B=
+\begin{bmatrix}
+    B_{11} & \cdots & B_{1t} \\
+    \vdots &  & \vdots \\
+    B_{s1} & \cdots & B_{st} \\
+\end{bmatrix} \\
+\end{align*}
+则
+\begin{equation}\label{matrix_AB}
+  AB=\begin{bmatrix}
+    A_{11} & A_{12}  &\cdots &A_{1s} \\
+    \vdots &         & &\vdots \\
+    A_{r1} & A_{r2}& \cdots & A_{rs} \\
+     \end{bmatrix}
+    \begin{bmatrix}
+    B_{11} & \cdots & B_{1t} \\
+    B_{21} & \cdots & B_{2t} \\
+    \vdots &  & \vdots \\
+    B_{s1} & \cdots & B_{st} \\
+    \end{bmatrix}=C
+\end{equation}
+其中$C$是$r\times t$分块矩阵，且
+\begin{equation}\label{eq_AB}
+\begin{split}
+  C_{kl} &= A_{k1}B_{1l}+A_{k2}B_{2l}+\cdots +A_{ks}B_{sl}\\
+   &=\sum_{i=1}^{s}A_{ki}B_{il}\quad\quad\quad\quad(k=1,2,\cdots,r;l=1,2,\cdots,t)
+\end{split}
+\end{equation}
+}
+
+\subsection{\CJKfamily{hei}正交矩阵}
+\par 首先引入正交变换的概念。
+\begin{definition}\label{defzjbh}
+正交变换：设$\sigma$为欧式空间V上的线性变换，若对所有的$\alpha,\beta\in V$都成立
+  \begin{equation*}
+    (\alpha,\beta)=(\sigma(\alpha),\sigma(\beta)),
+  \end{equation*}
+  则称$\sigma$是V上的正交变换。
+\end{definition}
+接下来我们根据正交变换的概念来定义正交矩阵。
+\begin{definition}\label{defzjjz1}
+  正交矩阵：正交变换在某组正交基下面的矩阵就是正交矩阵。
+\end{definition}
+正交矩阵还有另外一种定义。
+\begin{definition}\label{defzjjz2}
+  正交矩阵：设$A\in R^{n\times n}$，若$AA^{T}=A^{T}A=I$，则称A是正交矩阵。
+\end{definition}
+\begin{theorem}\label{zjthroem}
+  设$\sigma$为欧式空间V上的线性变换，那么$\sigma$保持V中向量的长度不变，即$\|\sigma(\alpha)\|=\|\alpha\|$。
+\end{theorem}
+
+\section{\CJKfamily{hei}实验内容}
+{\CJKfamily{song}
+(P93)
+\begin{enumerate}
+  \item 单位立方体位于第一卦限，一个顶点在原点。首先，以角度$\frac{\pi}{6}$沿$y$轴旋转立方体，然后再以角度$\frac{\pi}{4}$沿$z$轴旋转立方体。使用动画展示。
+\begin{figure}[htbp]
+  %\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[scale=0.5]{1.png}\\
+  \label{figure}
+\end{figure}
+    \item 设单位立方体位于第一卦限，一个顶点在原点。首先，以角度$\frac{\pi}{12}$ 沿$x$轴旋转立方体，然后再以角度$\frac{\pi}{6}$沿$z$轴旋转立方体使用动画展示。
+    \item 四面体的坐标为(0,0,0),(1,0,0),(0,1,0),(0,0,1)。首先以弧度0.15 沿$y$轴旋转，然后再以弧度-1.5沿$z$ 轴旋转，最后以弧度2.7沿$x$轴旋转。使用动画展示。
+\end{enumerate}
+}
+\section{\CJKfamily{hei}实验分析}
+{\CJKfamily{song}
+\par 根据二维的旋转矩阵(\ref{matrix_2ro})以及分块矩阵的知识可以推导出来三维绕坐标轴旋转的旋转矩阵。设A为$3\times 3$ 矩阵，$U=[x,y,x]'$是$3\times 1$矩阵，则乘积$V=AU$是另一个$3\times 1$矩阵。我们知道$3\times 1$阶矩阵和三维空间同构。矩阵$U$等价于位置向量$U=(x,y,z)$，表示在三维空间中一个点的位置。当点绕坐标轴旋转的时候，可以认为只有两个坐标变化而第三个不变。例如，当点绕z轴旋转$\gamma$角度的时候我们可以把旋转矩阵记为$R_{z}(\gamma)$，我们把旋转矩阵如下分割成四块，把坐标矩阵$U$分为如下两块
+\begin{equation}\label{fenkuaimatrix}
+R_{z}(\gamma)=\left[
+  \begin{array}{cc|c}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\\hline
+    a_{31} & a_{32} & a_{33} \\
+  \end{array}\right]
+=
+  \begin{bmatrix}
+    A & B \\
+    C & D \\
+  \end{bmatrix}
+  \quad\quad\quad
+U=\begin{bmatrix}
+      x \\
+      y \\\hline
+      z \\
+    \end{bmatrix}=
+    \begin{bmatrix}
+      E \\
+      F \\
+    \end{bmatrix}
+\end{equation}
+则
+\begin{equation}
+  V=R_{z}(\gamma)U=
+    \begin{bmatrix}
+    A & B \\
+    C & D \\
+  \end{bmatrix}
+      \begin{bmatrix}
+      E \\
+      F \\
+    \end{bmatrix}=
+        \begin{bmatrix}
+      AE+BF \\
+      CE+DF \\
+    \end{bmatrix}
+\end{equation}
+
+可以看出，当B、C为零矩阵，D为单位矩阵的时候，所得矩阵V的$AE+BF=AE$，而$CE+DF=F$，即只有x、y 轴的坐标变化而z轴坐标不变，所以当绕z轴旋转$\gamma$角度的时候，就是图形中所有的点在过这个点以及与xoy平行的平面中以z轴为中心旋转$\gamma$ 角度。可得
+\begin{equation}
+R_{z}(\gamma)=\left[
+  \begin{array}{ccc}
+    \cos\gamma & -\sin\gamma & 0 \\
+    \sin\gamma & \cos{\gamma} & 0 \\
+    0 & 0 & 1 \\
+  \end{array}\right]
+\end{equation}
+\par 同理，可以推出绕x轴旋转以及绕y轴旋转的旋转变换矩阵
+\begin{equation}
+R_{x}(\alpha)=
+  \begin{bmatrix}
+      1 & 0 &0 \\
+    0&\cos\alpha & -\sin\alpha  \\
+    0&\sin\alpha & \cos{\alpha}  \\
+  \end{bmatrix}
+\end{equation}
+\begin{equation}
+R_{y}(\beta)=
+  \begin{bmatrix}
+    \cos\beta &0& \sin\beta  \\
+          0& 1 &0 \\
+    -\sin\beta & 0&\cos{\beta}  \\
+  \end{bmatrix}
+\end{equation}
+\par 接下来需要证明这三个旋转矩阵不仅仅可以变换正方体的端点，还可以在旋转的过程中保持正方体的形状不变。只有满足了这个条件才能使用这三个旋转变换矩阵去变换正方体。
+\par 根据定义\ref{defzjjz2}可以知道三个旋转变换矩阵都是正交矩阵，又根据定义\ref{defzjjz1}可以知道三个矩阵都代表着一种正交变换，即：分别绕z轴、x轴、y轴逆时针转动。由定理\ref{zjthroem} 可以知道在变换之后不改变正方体的形状，所以可以使用这三个矩阵去变换正方体。
+\par 实现时使用Matlab软件，利用plot3命令画出单位立方体，利用旋转变换矩阵乘上立方体的端点坐标来对立方体进行旋转变换。利用movie2avi命令生成动画，最终实现动画展示。
+\par 由于plot3命令需要的参数是一系列端点坐标，用把坐标连线的方式绘图，又由于这种方式不能方便的仅仅利用八个点就一次画出来，所以我们使用了一个$3\times 16$的矩阵作为参数。之所以采用只使用一次plot3命令来绘制立方体的，是为了进行立方体旋转变换方便以及容易录制视频考虑。
+}
+\section{\CJKfamily{hei}实验代码}
+{\CJKfamily{song}
+\noindent 1.\par
+\leftskip=2em{
+\noindent figure  \%建立窗口\\
+h = figure  \%h为窗口句柄，将figure赋给h\\
+\%首先进行绕y轴pi/6的旋转，生成50帧的动画来展示。\\
+for i=1:50}
+\par\leftskip=3em{
+    \noindent \%t为旋转变换矩阵，t左乘坐标矩阵即为对坐标进行绕y轴正方向逆时针旋转。\\
+    t=[cos(i*pi/300),0,sin(i*pi/300);0,1,0;-sin(i*pi/300),0,cos(i*pi/300)];\newline
+    \%cube为plot3命令中画出正方体端点的矩阵，保存在workspace中，见于实验结果分析\\
+    t=t*cube;\%对正方体进行旋转\\
+    \%画出旋转后的图像\\
+    plot3(t(1,:),t(2,:),t(3,:));\\
+    \%在图像中给坐标轴贴标签\\
+    xlabel('X');\\
+    ylabel('Y');\\
+    zlabel('Z');\\
+    \%由于不知道怎么画出从原点伸开的xyz轴，所以用网格来在观看的时候判断是否绕轴旋转\\
+    grid;\\
+    \%按照常用的角度观察旋转，更容易理解动画\\
+    view(64,22)\\
+    \%设置坐标轴范围，用来固定坐标轴\\
+    axis([-0.7 1.5 -0.7 1.5 -0.7 1.5])\\
+    \%获取每一帧的动画\\
+    A(i)=getframe(h);\%在制作第二个视频的时候注释掉
+}
+\par \leftskip=0em
+end\\
+
+\leftskip=1.5em{
+\noindent \%制作输出avi视频文件\\
+\%movie2avi(A,'y\_movie2avi');
+}
+\par\leftskip=1.5em{
+\noindent \% 以下语句在进行制作绕z轴旋转的时候去掉注释，并且按照注释进行相应的更改
+\% aa = t; \%y轴旋转之后的立方体保存在aa中\\
+\% for i=1:100 \%动画设置为100帧。在录制绕z轴旋转的视频时改为1：100，制作全过程的时候改为101：200}
+\par\leftskip=3em{
+\noindent \%     \%t为绕z轴旋转变换矩阵\\
+\%     t=[cos((i)*pi/400),sin((i)*pi/400),0;-sin((i)*pi/400),cos((i)*pi/400),0;0,0,1];\\
+\%     \%对aa进行旋转变换\\
+\%     t=t*aa;\\
+\%     \%画出旋转变换之后的立方体\\
+\%     plot3(t(1,:),t(2,:),t(3,:));\\
+      \%在图像中给坐标轴贴标签\\
+\%     xlabel('X');\\
+\%     ylabel('Y');\\
+\%     zlabel('Z');\\
+    \%由于不知道怎么画出从原点伸开的xyz轴，所以用网格来在观看的时候判断是否绕轴旋转\\
+\%     grid;\\
+    \%按照常用的角度观察旋转，更容易理解动画\\
+\%     view(64,22)\\
+    \%设置坐标轴范围，用来固定坐标轴\\
+\%     axis([-0.7 1.5 -0.7 1.5 -0.7 1.5])\\
+    \%获取每一帧的动画\\
+\%     A(i)=getframe(h);
+}\par\leftskip=1.5em{
+\noindent\% end\\
+\noindent \% movie2avi(A,'z\_movie2avi','compression','none');\% 制作绕y 轴或者全部视频的时候注释掉\\
+\% movie2avi(A,'all\_movie2avi','compression','none');\% 制作单个旋转的时候注释掉\\}
+其中cube为:\\
+\begin{table}[h]
+\centering
+\caption{cube矩阵数据}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+         \hline
+         % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+         0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+         \hline
+         0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+         \hline
+         0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 0 \\
+         \hline
+       \end{tabular}
+\end{table}
+\par\leftskip=0em{
+\noindent 2.}
+\leftskip=2em{
+\noindent figure  \%建立窗口\\
+h = figure  \%h为窗口句柄，将figure赋给h\\
+
+\%首先进行绕y轴pi/6的旋转，生成50帧的动画来展示。\\
+for i=1:50}
+\par\leftskip=3em{
+    \noindent \%t为旋转变换矩阵，t左乘坐标矩阵即为对坐标进行绕y轴正方向逆时针旋转。\\
+    t=[1,0,0;0,cos(i*pi/600),-sin(i*pi/600);0,sin(i*pi/600),cos(i*pi/600)];\\
+    \%cube为plot3命令中画出正方体端点的矩阵\\
+    t=t*cube;\%对正方体进行旋转\\
+    \%画出旋转后的图像\\
+    plot3(t(1,:),t(2,:),t(3,:));\\
+    \%在图像中给坐标轴贴标签\\
+    xlabel('X');\\
+    ylabel('Y');\\
+    zlabel('Z');\\
+    \%由于不知道怎么画出从原点伸开的xyz轴，所以用网格来在观看的时候判断是否绕轴旋转\\
+    grid;\\
+    \%按照常用的角度观察旋转，更容易理解动画\\
+    view(64,22)\\
+    \%设置坐标轴范围，用来固定坐标轴\\
+    axis([-0.7 1.5 -0.7 1.5 -0.7 1.5])\\
+    \%获取每一帧的动画\\
+    A(i)=getframe(h);\%在制作第二个视频的时候注释掉
+}
+\par \leftskip=0em
+end\\
+\leftskip=1.5em{
+\noindent \%制作输出avi视频文件\\
+\% movie2avi(A,'x\_movie2avi','compression','None');\\
+\% movie(A)\\
+}
+\par\leftskip=1.5em{
+\noindent
+aa = t; \%y轴旋转之后的立方体保存在aa中\\
+for i=51:100 \%动画设置为50帧。在录制绕z轴旋转的视频时改为1：50，制作全过程的时候改为51：100}
+\par\leftskip=3em{
+\noindent    \%t为绕z轴旋转变换矩阵\\
+    t=[cos((i-50)*pi/300),sin((i-50)*pi/300),0;-sin((i-50)*pi/300),cos((i-50)*pi/300),0;0,0,1];\\
+    \%对aa进行旋转变换\\
+    t=t*aa;\\
+    \%画出旋转变换之后的立方体\\
+    plot3(t(1,:),t(2,:),t(3,:));\\
+\%       在图像中给坐标轴贴标签\\
+    xlabel('X');\\
+    ylabel('Y');\\
+    zlabel('Z');\\
+\%     由于不知道怎么画出从原点伸开的xyz轴，所以用网格来在观看的时候判断是否绕轴旋转\\
+    grid;\\
+\%     按照常用的角度观察旋转，更容易理解动画\\
+    view(64,22)\\
+\%     设置坐标轴范围，用来固定坐标轴\\
+    axis([-0.7 1.5 -0.7 1.5 -0.7 1.5])\\
+\%     获取每一帧的动画\\
+    A(i)=getframe(h);
+    }\par\leftskip=1.5em{
+\noindent
+end\\
+\% movie(A)\\
+\noindent movie2avi(A,'z\_movie2avi','compression','none');\%制作绕y轴或者全部视频的时候注释掉\\
+movie2avi(A,'all\_movie2avi','compression','none');\%制作单个旋转的时候注释掉\\
+cube数据和第一题相同。
+}
+
+
+\par\leftskip=0em{
+\noindent 3.}
+\par\leftskip=2em{
+\noindent  figure  \%建立窗口\\
+h = figure  \%h为窗口句柄，将figure赋给h\\
+\%首先进行绕y轴0.15的旋转，生成50帧的动画来展示。\\
+for i=1:50}
+\par\leftskip=4em
+{\noindent \%t为旋转变换矩阵，t左乘坐标矩阵即为对坐标进行绕y轴正方向逆时针旋转。\\
+    t=[cos(i*3/1000),0,sin(i*3/1000);0,1,0;-sin(i*3/1000),0,cos(i*3/1000)];\\
+    \%tetrahedron为plot3命令中画出四面体端点的矩阵\\
+    t=t*tetrahedron;\%对四面体进行旋转\\
+    \%画出旋转后的图像\\
+    plot3(t(1,:),t(2,:),t(3,:));\\
+    \%在图像中给坐标轴贴标签\\
+     xlabel('X');\\
+     ylabel('Y');\\
+     zlabel('Z');\\
+     \%由于不知道怎么画出从原点伸开的xyz轴，所以用网格来在观看的时候判断是否绕轴旋转\\
+     grid;\\
+     \%按照常用的角度观察旋转，更容易理解动画\\
+     view(18,14)\\
+     \%设置坐标轴范围，用来固定坐标轴\\
+     axis([-1.5 1.5 -1.5 1.5 -1.5 1.5]) \\
+     \%获取每一帧的动画\\
+     A(i)=getframe(h);\%在制作第二个视频的时候注释掉
+}
+\par\leftskip=2em{
+\noindent end\\
+\%制作输出avi视频文件\\
+\% movie2avi(A,'y\_movie2avi','compression','None');\\
+aa = t; \%y轴旋转之后的立方体保存在aa中\\
+for i=51:100 \%动画设置为50帧。在录制绕z轴旋转的视频时改为1：50，制作全过程的时候改为51：100}
+\par\leftskip=4em{
+\noindent\%t为绕z轴旋转变换矩阵\\
+     t=[cos(-(i-50)*3/100),sin(-(i-50)*3/100),0;-sin(-(i-50)*3/100),cos(-(i-50)*3/100),0;0,0,1];\\
+     \%对aa进行旋转变换\\
+     t=t*aa;\\
+     \%画出旋转变换之后的四面体\\
+     plot3(t(1,:),t(2,:),t(3,:));\\
+\%        在图像中给坐标轴贴标签\\
+     xlabel('X');\\
+     ylabel('Y');\\
+     zlabel('Z');\\
+\%      由于不知道怎么画出从原点伸开的xyz轴，所以用网格来在观看的时候判断是否绕轴旋转\\
+     grid;\\
+\%      按照常用的角度观察旋转，更容易理解动画\\
+     view(18,14)\\
+\%      设置坐标轴范围，用来固定坐标轴\\
+     axis([-1.5 1.5 -1.5 1.5 -1.5 1.5]) \\
+\%      获取每一帧的动画\\
+     A(i)=getframe(h);}
+\par\leftskip=2em{
+\noindent end\\
+\%制作输出avi视频文件\\
+\% movie2avi(A,'y\_movie2avi','compression','None');\\
+aaa = t; \%y轴旋转之后的立方体保存在aaa中\\
+for i=101:150 \%动画设置为50帧。在录制绕z轴旋转的视频时改为1：50，制作全过程的时候改为101:150}
+\par\leftskip=4em{
+\noindent\%t为绕x轴旋转变换矩阵\\
+     t=[1,0,0;0,cos((i-100)*27/500),-sin((i-100)*27/500);0,sin((i-100)*27/500),cos((i-100)*27/500)];\\
+     \%对aaa进行旋转变换\\
+     t=t*aaa;\\
+     \%画出旋转变换之后的四面体\\
+     plot3(t(1,:),t(2,:),t(3,:));\\
+\%        在图像中给坐标轴贴标签\\
+     xlabel('X');\\
+     ylabel('Y');\\
+     zlabel('Z');\\
+\%      由于不知道怎么画出从原点伸开的xyz轴，所以用网格来在观看的时候判断是否绕轴旋转\\
+     grid;\\
+\%      按照常用的角度观察旋转，更容易理解动画\\
+     view(18,14)\\
+\%      设置坐标轴范围，用来固定坐标轴\\
+     axis([-1.5 1.5 -1.5 1.5 -1.5 1.5]) \\
+\%      获取每一帧的动画\\
+     A(i)=getframe(h);}
+\par\leftskip=2em{
+\noindent end\\
+movie2avi(A,'x\_movie2avi','compression','none');\% 制作全过程旋转的时候注释掉\\
+movie2avi(A,'all\_movie2avi','compression','none');\% 制作单个旋转的时候注释掉\\
+tetrahedron矩阵的数据如下表：
+\begin{table}[h]
+\centering
+\caption{tetrahedron矩阵数据}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\
+  \hline
+  0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \\
+  \hline
+  0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\
+  \hline
+\end{tabular}
+
+\end{table}
+}
+
+}
+
+
+\section{\CJKfamily{hei}实验结果}
+\movie[autostart]{}{y.wmv}
+{\CJKfamily{song}
+\begin{enumerate}
+  \item 第一题：单位立方体位于第一卦限，一个顶点在原点。首先，以角度$\frac{\pi}{6}$沿$y$轴旋转立方体，结果如下所示：\begin{center}
+  \href{1y.avi}{单位立方体以角度$\frac{\pi}{6}$沿$y$轴旋转}。\end{center}
+  然后再以角度$\frac{\pi}{4}$沿$z$轴旋转立方体结果如下所示：
+  \begin{center}
+  \href{1z.avi}{单位立方体以角度$\frac{\pi}{4}$沿$z$轴旋转}。
+  \end{center}
+  总旋转过程如下所示：\begin{center}\href{1all.avi}{单位立方体旋转总过程}。\end{center}
+  \item 第二题：单位立方体位于第一卦限，一个顶点在原点。首先，以角度$\frac{\pi}{12}$沿$x$轴旋转立方体，结果如下所示：
+  \begin{center}\href{2x.avi}{单位立方体以角度$\frac{\pi}{12}$沿$x$轴旋转}。\end{center}
+  然后再以角度$\frac{\pi}{6}$沿$z$轴旋转立方体结果如下所示：
+  \begin{center}\href{1z.avi}{单位立方体以角度$\frac{\pi}{6}$沿$z$轴旋转}。\end{center}
+  总旋转过程如下所示：\begin{center}\href{2all.avi}{单位立方体旋转总过程}。\end{center}
+  \item 第三题：四面体首先以弧度0.15沿$y$轴旋转，结果如下所示：
+  \begin{center}\href{3y.avi}{四面体首先以弧度0.15沿$y$ 轴旋转}。\end{center}
+  然后再以弧度-1.5沿$z$轴旋转结果如下所示：
+  \begin{center}\href{3z.avi}{四面体以弧度-1.5沿$z$轴旋转}。\end{center}
+  然后再以弧度2.7沿$x$轴旋转结果如下所示：
+  \begin{center}\href{3x.avi}{四面体以弧度2.7沿$x$轴旋转}。\end{center}
+  总旋转过程如下所示：\begin{center}\href{3all.avi}{四面体旋转总过程}。\end{center}
+\end{enumerate}
+
+}
+
+\section{\CJKfamily{hei}实验结果分析}
+{\CJKfamily{song}
+\par 实验结果表明，正交变换的确可以保证保持原图形形状不变的转动。并且，由于旋转变换是由矩阵表示的，我们可以证明旋转变换和正交矩阵关于矩阵乘法构成的群是同构的。那么旋转变换的复合就相当于矩阵的乘法。所以只有当两个正交矩阵关于矩阵乘法可以交换的时候，两个旋转变换才能交换顺序。而在此实验中，三个实验的旋转矩阵不能关于矩阵乘法交换，所以，在这个三个实验中都是不能交换旋转顺序的。
+}
+\section{\CJKfamily{hei}实验总结}
+{\CJKfamily{song}
+\par 该实验中主要收获有两个，第一是关于使用CAD软件画图、制作视频输出，第二是温习了关于正交、矩阵、变换的知识。\par 在图形化的现代，在计算机上实现图形变化是很重要的，因此牵涉出如何表示图形以及对图形进行变化。通过这个实验体会了矩阵的重要性。图形的绘制以及对图形的变换都可以通过矩阵方便的表示。同时由于对矩阵研究的深入，对于图形的变换更加的便利。变换$\rightleftharpoons$矩阵$\rightleftharpoons$图形，体现了抽象和具体以及抽象层次的变化，这也是很重要的思想。把具体的问题抽象化从而可以更加广泛的解决问题，抽象的层次越高越具有普适性。但是同时也要有可以具体表示的工具，只有这样学习才能更广泛深入有力的解决问题。
+\par 另外这次的报告使用\LaTeX 编写也是一段痛苦但是收获很多的过程，遗憾的是最终没能在PDF文件中插入视频，希望以后能学会如何做。
+
+
+
+}
+\end{CJK*}
+\end{document}

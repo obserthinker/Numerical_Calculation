@@ -1,0 +1,21 @@
+Please input the number of nodes you have:nd->num = 6
+the NO.0 node and it's value are:the NO.1 node and it's value are:the NO.2 node and it's value are:the NO.3 node and it's value are:the NO.4 node and it's value are:the NO.5 node and it's value are:nd->num = 6
+the NO.0 node and it's value are :	1.000000	66.000000:
+the NO.1 node and it's value are :	2.000000	66.000000:
+the NO.2 node and it's value are :	3.000000	65.000000:
+the NO.3 node and it's value are :	4.000000	64.000000:
+the NO.4 node and it's value are :	5.000000	63.000000:
+the NO.5 node and it's value are :	6.000000	63.000000:
+No.(0,0) = 66.0		No.(0,1) = 66.0		No.(0,2) = 65.0		No.(0,3) = 64.0		No.(0,4) = 63.0		No.(0,5) = 63.0		
+No.(1,0) = 0.0		No.(1,1) = -1.0		No.(1,2) = -1.0		No.(1,3) = -1.0		No.(1,4) = 0.0		
+No.(2,0) = -0.5		No.(2,1) = 0.0		No.(2,2) = 0.0		No.(2,3) = 0.5		
+No.(3,0) = 0.2		No.(3,1) = 0.0		No.(3,2) = 0.2		
+No.(4,0) = -0.0		No.(4,1) = 0.0		
+No.(5,0) = 0.0		
+The No.0 value is :66.000000 
+The No.1 value is :0.000000 
+The No.2 value is :-0.500000 
+The No.3 value is :0.166667 
+The No.4 value is :-0.041667 
+The No.5 value is :0.016667 
+66.000000-0.500000*(x-1.000000)*(x-2.000000)+0.166667*(x-1.000000)*(x-2.000000)*(x-3.000000)-0.041667*(x-1.000000)*(x-2.000000)*(x-3.000000)*(x-4.000000)+0.016667*(x-1.000000)*(x-2.000000)*(x-3.000000)*(x-4.000000)*(x-5.000000)result = 66.000000

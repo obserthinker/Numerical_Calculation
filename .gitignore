@@ -30,3 +30,34 @@
 
 # Debug files
 *.dSYM/
+
+#Code::Blocks files
+*.cbp
+*.depend
+*.layout
+**/bin
+**/obj
+
+#Visual Studio files
+*.sdf
+*.sln
+*.suo
+**/Debug
+*.vcxproj
+*.filters
+
+#maybe MATLAB files
+*.db
+
+#Latex auxilary files
+*.aux
+*.dvi
+*.log
+*.gz
+*.bbl
+*.bak
+*.sav
+*.blg
+
+#video
+*.avi

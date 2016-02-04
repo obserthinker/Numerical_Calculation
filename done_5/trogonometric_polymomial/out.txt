@@ -1,0 +1,25 @@
+Input the Number of Node:
+Input No.10425704's value: Input No.10437088's value: Input No.10437096's value: Input No.10437104's value: Input No.10437112's value: Input No.10437120's value: Input No.10437128's value: Input No.10437136's value: Input No.10437144's value: Input No.10437152's value: Input No.10437160's value: Input No.10437168's value: Input No.10437176's value: Input No.10437184's value: Input No.10437192's value: Input No.10437200's value: Input No.10437208's value: Input No.10437216's value: Input No.10437224's value: Input No.10437232's value: Input No.10437240's value: Input No.10437248's value: Input No.10437256's value: Input No.10437264's value: Input the Number of Node:
+Input No.10437288's value: Input No.10437304's value: Input No.10437312's value: Input No.10437320's value: Input No.10437328's value: Input No.10437336's value: Input No.10437344's value: Input No.10437352's value: Input No.10437360's value: Input No.10437368's value: Input No.10437376's value: Input No.10437384's value: Input No.10437392's value: Input No.10437400's value: Input No.10437408's value: Input No.10437416's value: Input No.10437424's value: Input No.10437432's value: Input No.10437440's value: Input No.10437448's value: Input No.10437456's value: Input No.10437464's value: Input No.10437472's value: Input No.10437480's value: Input the Number of Node:
+Input the Number of Node:
+coe_a:
+$b_1$ & 116.750000 \\
+$b_2$ & -3.462926 \\
+$b_3$ & 1.608666 \\
+$b_4$ & -1.006723 \\
+$b_5$ & 0.274678 \\
+$b_6$ & -0.251282 \\
+$b_7$ & -0.082340 \\
+$b_8$ & 0.012501 \\
+
+coe_b:
+$b_1$ & 0.000000 \\
+$b_2$ & -2.128247 \\
+$b_3$ & 0.254626 \\
+$b_4$ & 0.542301 \\
+$b_5$ & -0.414908 \\
+$b_6$ & 0.155472 \\
+$b_7$ & -0.129098 \\
+
+
+58.375000+(-3.462926*cos(1*x*pi/12) + (-2.128247)*sin(1*x*pi/12))+(1.608666*cos(2*x*pi/12) + (0.254626)*sin(2*x*pi/12))+(-1.006723*cos(3*x*pi/12) + (0.542301)*sin(3*x*pi/12))+(0.274678*cos(4*x*pi/12) + (-0.414908)*sin(4*x*pi/12))+(-0.251282*cos(5*x*pi/12) + (0.155472)*sin(5*x*pi/12))+(-0.082340*cos(6*x*pi/12) + (-0.129098)*sin(6*x*pi/12))+(0.012501*cos(7*x*pi/12) + (0.000000)*sin(7*x*pi/12))

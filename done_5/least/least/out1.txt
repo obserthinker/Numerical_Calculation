@@ -1,0 +1,55 @@
+Input the Number of Node:Input the No.1's value:Input the No.2's value:Input the No.3's value:Input the No.4's value:Input the No.5's value:
+X vector
+The No.1's value is:0.200000
+The No.2's value is:0.400000
+The No.3's value is:0.600000
+The No.4's value is:0.800000
+The No.5's value is:1.000000
+Input the Number of Node:Input the No.1's value:Input the No.2's value:Input the No.3's value:Input the No.4's value:Input the No.5's value:
+Y vector
+The No.1's value is:3.600000
+The No.2's value is:7.300000
+The No.3's value is:10.900000
+The No.4's value is:14.500000
+The No.5's value is:18.200000
+Input the Number of Node:Input the No.1's value:Input the No.2's value:Input the No.3's value:Input the No.4's value:Input the No.5's value:
+XSquare vector
+The No.1's value is:0.200000
+The No.2's value is:0.400000
+The No.3's value is:0.600000
+The No.4's value is:0.800000
+The No.5's value is:1.000000
+Input the Number of Node:
+XY vector
+The No.1's value is:0.000000
+The No.2's value is:0.000000
+The No.3's value is:0.000000
+The No.4's value is:0.000000
+The No.5's value is:0.000000
+
+after square
+The No.1's value is:0.040000
+The No.2's value is:0.160000
+The No.3's value is:0.360000
+The No.4's value is:0.640000
+The No.5's value is:1.000000
+aaa
+The No.1's value is:0.720000
+The No.2's value is:2.920000
+The No.3's value is:6.540000
+The No.4's value is:11.600000
+The No.5's value is:18.200000
+sum_x=3.000000
+sum_y=54.500000
+sum_xsquare=2.200000
+sum_xy=39.980000
+
+2.200000   3.000000   
+0.000000   0.909091   
+
+39.980000   
+-0.018182   
+
+X= 
+18.200000   
+-0.020000   

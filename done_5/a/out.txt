@@ -1,0 +1,67 @@
+Input the Number of Node:
+Input the No.1's value:Input the No.2's value:Input the No.3's value:Input the No.4's value:Input the No.5's value:Input the No.6's value:Input the No.7's value:Input the No.8's value:Input the No.9's value:Input the No.10's value:Input the No.11's value:Input the No.12's value:Input the No.13's value:Input the No.14's value:Input the No.15's value:Input the No.16's value:Input the No.17's value:Input the No.18's value:Input the No.19's value:Input the No.20's value:Input the No.21's value:Input the No.22's value:Input the No.23's value:Input the No.24's value:The No.0 value is :1.000000 
+The No.1 value is :2.000000 
+The No.2 value is :3.000000 
+The No.3 value is :4.000000 
+The No.4 value is :5.000000 
+The No.5 value is :6.000000 
+The No.6 value is :7.000000 
+The No.7 value is :8.000000 
+The No.8 value is :9.000000 
+The No.9 value is :10.000000 
+The No.10 value is :11.000000 
+The No.11 value is :12.000000 
+The No.12 value is :13.000000 
+The No.13 value is :14.000000 
+The No.14 value is :15.000000 
+The No.15 value is :16.000000 
+The No.16 value is :17.000000 
+The No.17 value is :18.000000 
+The No.18 value is :19.000000 
+The No.19 value is :20.000000 
+The No.20 value is :21.000000 
+The No.21 value is :22.000000 
+The No.22 value is :23.000000 
+The No.23 value is :24.000000 
+Input the Number of Node:
+Input the No.1's value:Input the No.2's value:Input the No.3's value:Input the No.4's value:Input the No.5's value:Input the No.6's value:Input the No.7's value:Input the No.8's value:Input the No.9's value:Input the No.10's value:Input the No.11's value:Input the No.12's value:Input the No.13's value:Input the No.14's value:Input the No.15's value:Input the No.16's value:Input the No.17's value:Input the No.18's value:Input the No.19's value:Input the No.20's value:Input the No.21's value:Input the No.22's value:Input the No.23's value:Input the No.24's value:The No.0 value is :66.000000 
+The No.1 value is :66.000000 
+The No.2 value is :65.000000 
+The No.3 value is :64.000000 
+The No.4 value is :63.000000 
+The No.5 value is :63.000000 
+The No.6 value is :62.000000 
+The No.7 value is :61.000000 
+The No.8 value is :60.000000 
+The No.9 value is :60.000000 
+The No.10 value is :59.000000 
+The No.11 value is :58.000000 
+The No.12 value is :58.000000 
+The No.13 value is :58.000000 
+The No.14 value is :58.000000 
+The No.15 value is :58.000000 
+The No.16 value is :57.000000 
+The No.17 value is :57.000000 
+The No.18 value is :57.000000 
+The No.19 value is :58.000000 
+The No.20 value is :60.000000 
+The No.21 value is :64.000000 
+The No.22 value is :67.000000 
+The No.23 value is :68.000000 
+
+11.474603   0.554774   -0.999789   
+0.554774   12.683914   -2.691411   
+-0.999789   -2.691411   24.000000   
+
+-66.841075   
+-194.099505   
+1467.000000   
+
+Y = 
+-66.841075   
+-190.867870   
+1421.318777   
+X= 
+-0.409146   
+-2.374872   
+60.841633   

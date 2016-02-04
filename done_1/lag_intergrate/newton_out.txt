@@ -1,0 +1,22 @@
+Input the order of the polynomial:Input the coefficient of the order 0:	Input the coefficient of the order 1:	Input the coefficient of the order 2:	Input the coefficient of the order 3:	Input the coefficient of the order 4:	Input the coefficient of the order 5:	
+The integrate polynomial is:0.166667*x^5+-2.541672*x^4+14.750032*x^3+-40.458422*x^2+51.083445*x^1+42.999950
+Input the upper bound:the upper bound is 6.000000
+Input the lower bound:the lower bound is 1.000000
+I_6 = 0.027778
+I_5 =a_4/5 + i_6*x=-0.508334 + (0.027778)*6.000000 = -0.341667
+I_4 =a_3/4 + i_5*x=3.687508 + (-0.341667)*6.000000 = 1.637504
+I_3 =a_2/3 + i_4*x=-13.486141 + (1.637504)*6.000000 = -3.661119
+I_2 =a_1/2 + i_3*x=25.541723 + (-3.661119)*6.000000 = 3.575008
+I_1 =a_0/1 + i_2*x=42.999950 + (3.575008)*6.000000 = 64.449999
+I_0 = C + I_1 * x = 0 + 64.449999*6.000000 = 386.699992
+result of integration 6.000000 is 386.699992
+I_6 = 0.027778
+I_5 =a_4/5 + i_6*x=-0.508334 + (0.027778)*1.000000 = -0.480557
+I_4 =a_3/4 + i_5*x=3.687508 + (-0.480557)*1.000000 = 3.206951
+I_3 =a_2/3 + i_4*x=-13.486141 + (3.206951)*1.000000 = -10.279189
+I_2 =a_1/2 + i_3*x=25.541723 + (-10.279189)*1.000000 = 15.262533
+I_1 =a_0/1 + i_2*x=42.999950 + (15.262533)*1.000000 = 58.262483
+I_0 = C + I_1 * x = 0 + 58.262483*1.000000 = 58.262483
+result of integration 1.000000 is 58.262483
+the result is : 386.699992-58.262483 = 328.437508
+the average is 65.687502 = 328.437508/(6.000000-1.000000)
