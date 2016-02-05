@@ -1,29 +1,29 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include "operation.h"
-
 
 int main()
 {
     freopen("last_experience10.txt","r",stdin);
-    freopen("last_experience_out10.txt","w",stdout);
+    //freopen("last_experience_out10.txt","w",stdout);
     //freopen("in.txt","r",stdin);
-
-/************±äÁ¿ÉùÃ÷Çø*********************************/
-    //h ´ú±í×Ô±äÁ¿Ö®¼äµÄ¼ä¾à¡£ h_n=x_(n+1)-x(n)
-    //d ±íÊ¾ÏàÁÚÁ½µãÖ®Ö®¼äµÄÐ±ÂÊ¡£d_n=(y_(n+1)-y_n)/h_n
-    //m ´ú±íÔÚÄ³µã´¦µÄ¶þ´Îµ¼ÊýÖµ
-    //u ´ú±í½âmµÄ·½³Ì×éÊ±µÈºÅÓÒ±ßµÄÊý¡£u_n=6(d_(n+1)-d_n)
+/************å˜é‡å£°æ˜ŽåŒº*********************************/
+    //h ä»£è¡¨è‡ªå˜é‡ä¹‹é—´çš„é—´è·ã€‚ h_n=x_(n+1)-x(n)
+    //d è¡¨ç¤ºç›¸é‚»ä¸¤ç‚¹ä¹‹ä¹‹é—´çš„æ–œçŽ‡ã€‚d_n=(y_(n+1)-y_n)/h_n
+    //m ä»£è¡¨åœ¨æŸç‚¹å¤„çš„äºŒæ¬¡å¯¼æ•°å€¼
+    //u ä»£è¡¨è§£mçš„æ–¹ç¨‹ç»„æ—¶ç­‰å·å³è¾¹çš„æ•°ã€‚u_n=6(d_(n+1)-d_n)
     vector *d, *h, *m, *u;
-    //Xnode, Ynode´ú±íÒÑÖªµãµÄºá¡¢×Ý×ø±êÖµ¡£
+    //Xnode, Ynodeä»£è¡¨å·²çŸ¥ç‚¹çš„æ¨ªã€çºµåæ ‡å€¼ã€‚
     vector *Xnode, *Ynode;
-    //S Îª¶þÖØÖ¸Õë£¬´æ´¢¶àÏîÊ½ÏµÊý¡£
+    //S ä¸ºäºŒé‡æŒ‡é’ˆï¼Œå­˜å‚¨å¤šé¡¹å¼ç³»æ•°ã€‚
     double **S;
-    //ds_a¡¢ds_b ·Ö±ð±íÊ¾×ó¡¢ÓÒ¶Ëµã³öµÄÒ»´Îµ¼ÊýÖµ
-    double ds_a = -7;
-    double ds_b = 0.5;
+    //ds_aã€ds_b åˆ†åˆ«è¡¨ç¤ºå·¦ã€å³ç«¯ç‚¹å‡ºçš„ä¸€æ¬¡å¯¼æ•°å€¼
+    double ds_a = 0;//-7;
+    double ds_b = 0.6274;//0.5;
+    //i æŽ§åˆ¶å¾ªçŽ¯æ¬¡æ•°
     int i;
-/*--initialize the vectors--*/
+
+/***----------------initialize the vectors-----------------***/
     d = init_vector(d,0);
     h = init_vector(h,0);
     m = init_vector(m,0);
@@ -34,10 +34,12 @@ int main()
     ShowVector(Ynode);
     S = malloc((Xnode->N-1) * sizeof(double*));
 
-/*--calculate every element of every vector--*/
+/**------calculate every element of every vector-----**/
     calcu_h(h,Xnode);
     calcu_d(d,Xnode,Ynode);
     calcu_u(d,u,Xnode);
+    //è¾“å‡ºè®¡ç®—å¾—åˆ°çš„å„ä¸ªæ•°å€¼
+
     printf("\nh\n");
     ShowVector(h);
     printf("\nd\n");
@@ -48,14 +50,22 @@ int main()
     printf("\nu\n");
     ShowVector(u);
 
+
 /*--using Gauss-Seidel iteration to solve the equation HM=V--*/
+    //è®¡ç®—mçš„æ•°å€¼ï¼ˆé™¤äº†ç«¯ç‚¹å¤„çš„ä¹‹å¤–ï¼‰
     calcu_m(m,d,u,h,Xnode,ds_a,ds_b);
-    *(m->value+0) = 0;
-    *(m->value+Xnode->N - 1) = 0;
+    //è®¡ç®—ç¬¬ä¸€ä¸ªå’Œæœ€åŽä¸€ä¸ªmå€¼
+    *(m->value+0) = (3 / *(h->value)) * (*(d->value) - ds_a) - *(m->value+1) / 2;
+    *(m->value+Xnode->N - 1) = (3 / *(h->value+Xnode->N - 2)) * (ds_b - *(d->value+Xnode->N - 2)) - *(m->value+Xnode->N - 2) / 2;
+    //è¾“å‡ºmæ•°åˆ—
+
     printf("\nm:\n");
     ShowVector(m);
+
+
 /*--use what have calculated to calculate the coefficient of clamped cubic spline--*/
     calcu_S(S,Ynode,d,h,m);
+
 /*--show the value of coefficients--*/
     for(i = 0; i < Ynode->N-1; i++){
         printf("%lf&\t%lf&\t%lf&\t%lf\n",*(*(S+i)+0),*(*(S+i)+1),*(*(S+i)+2),*(*(S+i)+3));
